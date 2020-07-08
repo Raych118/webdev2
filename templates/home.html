@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} home {% endblock %}
+{% block pagename %} RACHEL'S STORE {% endblock %}
+{% block body %}
+
+
+<section>
+    <div>
+        <ul class="messages">
+            {% for msg in messages %}
+            <li>
+                <div class="alert alert-{{msg.level_tag}}" role="alert">
+                    {{msg.message}}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class = "title">
+            <h2><strong>WELCOME TO RACHEL'S STORE</strong></h2>
+        </div>
+        <br/>
+        <br/>
+        <div class="card">
+            <table class = "table">
+                <tr>
+                    <td>
+                        <img  src="{% static 'images/p1.jpg' %}" alt="Hoodie" style="width:100%">
+                        <h1>Rachel Thing Hoodie</h1>
+                        <p class="price">$24.99</p>
+                        <p><a href="{% url 'order' %}"><button>Add to Cart</button></a></p>
+                    </td>
+                </tr>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <tr>
+                    <td>
+                        <img  src="{% static 'images/p3.jpg' %}" alt="Hoodie" style="width:100%">
+                        <h1>Rachel Legend Hoodie</h1>
+                        <p class="price">$29.99</p>
+                        <p><button>Product unavailable</button></p>
+                    </td>
+                </tr>
+                <br/>
+                <tr>
+                    <td>
+                        <img  src="{% static 'images/p2.jpg' %}" alt="Hoodie" style="width:100%">
+                        <h1>Tailored Jeans</h1>
+                        <p class="price">$19.99</p>
+                        <p><button>Product unavailable</button></p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</section>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+{% endblock %}
+

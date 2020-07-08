@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}products{% endblock %}
+{% block pagename %} HELP {% endblock %}
+{% block body %}
+
+
+<section>
+	<div class="box">
+		<form action="{% url 'query' %}" method="post" name="myForm" onsubmit="return validateForm()">
+			{% csrf_token %}
+			<span class="text-center">Ask A Question</span>
+			<br/>
+			<ul class="messages">
+				{% for msg in messages %}
+				<li>
+					<div class="alert alert-{{msg.level_tag}}" role="alert">
+						{{msg.message}}
+					</div>
+				</li>
+				{% endfor %}
+			</ul>
+			<div class="input-container">
+				{{form.customer_name}}
+				<br/>
+				<br/>
+
+			</div>
+
+			<div class="input-container">
+				{{form.number}}
+				<br/>
+				<br/>
+			</div>
+			<div class="input-container">
+				{{form.email}}
+				<br/>
+				<br/>
+			</div>
+			<div class="input-container">
+				{{form.question}}
+			</div>
+			<div class="title">
+				<button class ="btn btn-outline-primary" input type="submit" value="Submit">Submit Query</button>
+			</div>
+
+		</form>
+
+		<div class="title">
+			<a href="{% url 'pull' %}" > <button class="btn btn-outline-primary">Check Enquiry</button> </a>
+		</div>
+
+	</div>
+
+</section>
+
+
+<script>
+function validateForm(){
+  var fullName = document.forms["myForm"]["fullName"].value;
+  var num = document.forms["myForm"]["num"].value;
+  var enquiry = document.forms["myForm"]["enquiry"].value;
+  var EM= document.forms["myForm"]["EM"].value;
+  var re = /^[A-Za-z]+$/;
+  var e= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+   if(num == null || num ==""){
+  alert("Phone number needed");
+  document.getElementById("num").style.borderColor="red";
+  return false;
+  }
+
+   if(num.match(re) || num.length < 10){
+  alert("Error: Invalid characters");
+  document.getElementById("num").style.borderColor="red";
+  return false;
+  }
+
+   if( EM == null || EM == ""){
+  alert("Email address needed");
+  document.getElementById("EM").style.borderColor="red";
+  return false;
+  }
+
+   if(num.match(e)){
+  alert("input correct");
+
+  return false;
+  }
+
+   if(enquiry == null || enquiry ==""){
+  alert("please type enquiry");
+  document.getElementById("enquiry").style.borderColor="red";
+  return false;
+  }
+
+
+   if(fullName == null || fullName ==""){
+  alert("first name needed");
+  document.getElementById("fullName").style.borderColor="red";
+  return false;
+  }
+
+  if(fullName.match(re)){
+  alert(" Enquiry successful");
+  return true;}
+  else
+  { alert("Error: Invalid Input");
+   document.getElementById("fullName").style.borderColor="red";
+  return false;
+  }
+
+  }
+
+  function en(){
+    alert("fill form in");
+
+
+      var fullName = document.forms["myForm"]["fullName"].value;
+  var num = document.forms["myForm"]["num"].value;
+  var enquiry = document.forms["myForm"]["enquiry"].value;
+  var EM= document.forms["myForm"]["EM"].value;
+  var re = /^[A-Za-z]+$/;
+  var e= /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+   if(num == null || num ==""){
+  alert("Phone number needed");
+  document.getElementById("num").style.borderColor="red";
+  return false;
+  }
+
+   if(num.match(re) || num.length < 10){
+  alert("Error: Invalid characters");
+  document.getElementById("num").style.borderColor="red";
+  return false;
+  }
+
+   if( EM == null || EM == ""){
+  alert("Email address needed");
+  document.getElementById("EM").style.borderColor="red";
+  return false;
+  }
+
+   if(num.match(e)){
+  alert("input correct");
+
+  return false;
+  }
+
+   if(enquiry == null || enquiry ==""){
+  alert("please type enquiry");
+  document.getElementById("enquiry").style.borderColor="red";
+  return false;
+  }
+
+
+   if(fullName == null || fullName ==""){
+  alert("first name needed");
+  document.getElementById("fullName").style.borderColor="red";
+  return false;
+  }
+
+  if(fullName.match(re)){
+  alert(" Enquiry successful");
+  return true;}
+  else
+  { alert("Error: Invalid Input");
+   document.getElementById("fullName").style.borderColor="red";
+  return false;
+  }
+
+  }
+
+  </script>
+
+{% endblock %}

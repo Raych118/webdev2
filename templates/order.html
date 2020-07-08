@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}products{% endblock %}
+{% block pagename %} CHECKOUT {% endblock %}
+{% block body %}
+
+
+<section>
+    <ul class="messages">
+        {% for msg in messages %}
+        <li>
+            <div class="alert alert-{{msg.level_tag}}" role="alert">
+                {{msg.message}}
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    <div>
+        <div class="container-fluid">
+            <div class = "title">
+                <h2><strong>Welcome to Rachel's store</strong> </h2>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <div class="cardCheckout">
+                <div class="card">
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <img src="images/p4.jpg" alt="Hoodie" style="width:100%">
+                                <h1>Rachel Thing Hoodie</h1>
+                                <p class="priceCheckout">$24.99</p>
+                                <p class="priceCheckout">This hoodie came straight from Rachel herself. Signed, sealed and delivered by her</p>
+                                <p class="priceCheckout">Delivery done in five to six working days</p>
+                                <div class="title">
+                                    <a href="{% url 'products' %}"><button class ="btn btn-outline-primary">Browse for more products</button></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</br>
+</br>
+</br>
+</br>
+
+</section>
+
+
+{% endblock %}

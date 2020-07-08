@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}products{% endblock %}
+{% block pagename %} ENQUIRIES {% endblock %}
+{% block body %}
+
+<section>
+<h2> ENQUIRIES </h2>
+<ul class="messages">
+    {% for msg in messages %}
+    <li>
+        <div class="alert alert-{{msg.level_tag}}" role="alert">
+            {{msg.message}}
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+<div class="container">
+    {% for enc in enquiries %}
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">QUESTION</h5>
+                    <p class="card-text">{{enc.question}}</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">REPLY</h5>
+                    <p class="card-text">{{enc.reply}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}products{% endblock %}
+{% block pagename %} ABOUT US {% endblock %}
+{% block body %}
+
+
+<section>
+    <div>
+        <div class="container-fluid">
+            <div class = "title">
+                <h2><strong>About Rachel's store</strong></h2>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <div class="cardCheckout">
+                <div class="card">
+                    <table class="table">
+                        <tr>
+                            <td>
+
+                                <p class="priceCheckout">Whether you are the trendsetter, the hustler, the life of the party, the wanderlust, or the social media maven, we’ll dress you from head-to-toe, as you take the lead in your own RW life. Every member of our RACHEL Fam is one-of-a-kind, though they have one thing in common — the day starts and ends in a RACHEL Store ‘fit.</br>
+
+                                    RACHEL'S Store is owned and operated in the heart of Downtown Harare, with 8 retail locations throughout Zimbabwe. We are devoted to delivering the most sought-after, head-turning, up-to-the-moment trends, to anyone, anywhere in the world!
+
+                                    </br>Don’t forget to tag us in your fearless RACHEL'S Store ‘fit: @RACHELStore @RACHELStoreHoodie @RACHELStoreMEN and share it on your favorite social media platform.</p>
+
+                                <div class="title">
+                                    <a href="{% url 'home' %}"><button class ="btn btn-outline-primary">Go Back</button></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
